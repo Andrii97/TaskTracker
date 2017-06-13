@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> Spring 4 Security + Thymeleaf Integration Example </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/main.css"/>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Task manager</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li>-->
+                    <!--<a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a>-->
+                <!--</li>-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span>
+                    </a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" th:action="@{/login}" method="POST" accept-charset="UTF-8" id="login-nav">
+                                        <legend>Login information</legend>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label for="input-email">Email address</label>
+                                                <input type="email" class="form-control" id="input-email" name="username" placeholder="" required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input-password">Password</label>
+                                                <input type="password" class="form-control" id="input-password" name="password" placeholder="" required="required"/>
+                                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--<div class="bottom text-center">-->
+                                    <!--New here ? <a href="signup.html"><b>Join Us</b></a>-->
+                                <!--</div>-->
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <div th:if="${param.error}" class="alrt alert-error">
+            Invalid username and password.
+        </div>
+
+        <h1>Time management</h1>
+        <p>
+            Time management is important for your personal life and career success. It teaches you how to manage your time effectively and make the most of it.
+        </p>
+        <p>
+            Here are a few of the reasons why it is so important, and how it can help you use and manage your time more advantageously:
+        </p>
+        <p>
+            1. Time is a special resource that you cannot store or save for later use. Everyone has the exact same amount of time each day. Time not well used cannot be retrieved.
+        </p>
+        <p>
+            2. Most people, feel like they have too much to do and not enough time. They blame lack of time for their poor finances, stress, bad relationships, and for not exercising their body.
+        </p>
+        <!--<div>-->
+            <!--<video width="400" height="300" controls>-->
+                <!--<source src="files/TimeManagementTipsForProjectManagers!.mp4" type="video/mp4">-->
+                <!--<source src="files/TimeManagementTipsForProjectManagers!.webm" type="video/webm">-->
+            <!--</video>-->
+        <!--</div>-->
+        <br/>
+    </div>
+    <footer>
+        <address>
+            Written by <a href="mailto:severinandrey97@gmail.com">Andrii Severin</a>
+        </address>
+        <p>Copyright Andrii Severin 2017</p>
+    </footer>
+</body>
+</html>

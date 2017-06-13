@@ -1,0 +1,195 @@
+body {
+    font-size: 1.5em;
+    margin: 15px auto;
+}
+
+input.field {
+    width: 90%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+/*Classes for creating dialogs*/
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+footer {
+    text-align: center;
+    bottom: 10px;
+}
+
+
+em {
+    color: red;
+}
+
+h1 {
+    text-align: center;
+}
+
+form p i {
+    font-size: 70%;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+
+#login-dp .help-block{
+    font-size:12px
+}
+
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+/* gallery */
+.gallery {
+    padding: 0 50px;
+    display: inline-block;
+    float:left;
+    position:relative;
+}
+
+/* for image in gallery */
+.gallery img {
+    height: 300px;
+    width: 300px;
+}
+
+.content {
+    padding: 10px;
+    padding-left: 5%;
+}
+
+video {
+    margin-left: 35%;
+}
+
+.tasks {
+    text-align: justify;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+
+.tasks div a {
+    font-size: 1.5em;
+    color: darkblue;
+}
+
+.tasks div a:visited {
+    color: blue;
+}
+
+.tasks div a:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+.comment {
+    font-family: 'Lobster', cursive;
+    font-size: 1em;
+}
+
+.comment p {
+    font-family: 'Arial';
+    font-size: 0.8em;
+}
+
+.content {
+	text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: 15px auto;
+}
+
+.two-column {
+    text-align: justify;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+}
