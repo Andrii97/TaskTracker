@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ua</groupId>
-  <artifactId>ORMTest</artifactId>
+  <artifactId>TaskTracker</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -46,17 +46,13 @@
     </dependency>
 
     <!---->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.thymeleaf.extras</groupId>
-      <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-    </dependency>
     <!--<dependency>-->
-    <!--<groupId>org.springframework.boot</groupId>-->
-    <!--<artifactId>spring-boot-starter-security</artifactId>-->
+      <!--<groupId>org.springframework.boot</groupId>-->
+      <!--<artifactId>spring-boot-starter-security</artifactId>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>org.thymeleaf.extras</groupId>-->
+      <!--<artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
     <!--</dependency>-->
 
     <dependency>

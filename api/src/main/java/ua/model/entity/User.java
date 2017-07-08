@@ -1,7 +1,7 @@
 package ua.model.entity;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 public class User {
-    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+//    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
     private Long id;
     private String name;
@@ -60,7 +60,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = (password == null) ? null : PASSWORD_ENCODER.encode(password); // password;//
+        this.password = password;// (password == null) ? null : PASSWORD_ENCODER.encode(password); //
     }
 //
 //    public List<ProjectTeam> getProjectTeam() {

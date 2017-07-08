@@ -27,7 +27,7 @@ public class CommentRestController {
         return new ResponseEntity<>(commentRepository.save(comment), HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/comments/{id}")//, value = "/{id}")
+    @PutMapping(path = "/comments/{id}")
     public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
         if (commentRepository.findOne(id) == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

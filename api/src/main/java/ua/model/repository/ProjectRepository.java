@@ -2,8 +2,10 @@ package ua.model.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import ua.model.entity.Status;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import ua.model.entity.Project;
 
 @RepositoryRestResource
-public interface StatusRepository extends PagingAndSortingRepository<Status, Long> {
+@CrossOrigin
+public interface ProjectRepository extends PagingAndSortingRepository<Project, Long> {
 }
