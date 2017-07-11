@@ -1,27 +1,30 @@
 package ua.model.entity;
 
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * @author Andrii Severin
+ */
 @Entity
 public class User implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
     private String surname;
+
     @NotNull
+    @Column(unique = true)
     private String email;
+
     @NotNull
     private String password;
 
@@ -50,7 +53,7 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
-    @Column(unique = true)
+
     public String getEmail() {
         return email;
     }

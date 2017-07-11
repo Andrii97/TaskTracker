@@ -62,7 +62,7 @@ public class ProjectRestController {
     public ResponseEntity<ProjectTeam> addToProjectTeam(@PathVariable Long id,
                                                         @RequestBody ProjectTeamDTO projectTeamDTO) {
         ProjectTeam projectTeam = new ProjectTeam();
-        projectTeam.setConfirmed(projectTeamDTO.getConfirmed());
+        projectTeam.setIsConfirmed(projectTeamDTO.getConfirmed());
         projectTeam.setRole(projectTeamDTO.getRole());
         projectTeam.setProject(projectRepository.findOne(id));
         projectTeam.setUser(userRepository.findOne(projectTeamDTO.getUserId()));
@@ -80,7 +80,7 @@ public class ProjectRestController {
         if (oldProjectTeam == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        oldProjectTeam.setConfirmed(projectTeamDTO.getConfirmed());
+        oldProjectTeam.setIsConfirmed(projectTeamDTO.getConfirmed());
         oldProjectTeam.setRole(projectTeamDTO.getRole());
         oldProjectTeam.setProject(projectRepository.findOne(id));
         oldProjectTeam.setUser(userRepository.findOne(userId));
