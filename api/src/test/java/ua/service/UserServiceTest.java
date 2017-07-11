@@ -11,7 +11,8 @@ import ua.model.entity.User;
 import ua.model.service.UserService;
 
 /**
- * Created by andrii on 09.07.17.
+ * @version 1.0 09 Jul 2017
+ * @author Andrii Severin
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

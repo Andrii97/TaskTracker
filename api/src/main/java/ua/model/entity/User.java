@@ -26,6 +26,7 @@ public class User implements UserDetails {
     private String email;
 
     @NotNull
+    @JsonIgnore
     private String password;
 
 
@@ -62,15 +63,18 @@ public class User implements UserDetails {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String role = "user";
         return Collections.singletonList(new SimpleGrantedAuthority(role));
-    }
-
-    @JsonIgnore
-    public String getPassword() {
-        return password;
     }
 
     @Override
@@ -96,10 +100,6 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;// (password == null) ? null : PASSWORD_ENCODER.encode(password); //
     }
 
     @Override

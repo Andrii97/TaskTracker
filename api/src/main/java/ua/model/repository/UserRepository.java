@@ -14,4 +14,5 @@ import java.util.Optional;
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
     @RestResource(path = "email", rel = "email")
     Optional<User> findByEmail(@Param("email") String email);
+    Optional<User> findOne(long id);
 }

@@ -5,7 +5,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.controller.dto.CommentDTO;
+import ua.model.dto.CommentDTO;
 import ua.model.entity.Comment;
 import ua.model.repository.CommentRepository;
 import ua.model.repository.TaskRepository;

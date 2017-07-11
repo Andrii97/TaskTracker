@@ -4,7 +4,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import ua.model.entity.User;
 
 /**
- * Created by andrii on 09.07.17.
+ * @version 1.0 09 Jul 2017
+ * @author Andrii Severin
  */
 public interface UserService extends UserDetailsService {
     User loadUserByUsername(String username);

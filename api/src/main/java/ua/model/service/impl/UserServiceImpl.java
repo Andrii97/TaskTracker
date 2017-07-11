@@ -9,6 +9,9 @@ import ua.model.service.UserService;
 
 import java.util.Optional;
 
+/**
+ * @author Andrii Severin
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

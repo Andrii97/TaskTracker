@@ -5,7 +5,7 @@ import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ua.controller.dto.TaskDTO;
+import ua.model.dto.TaskDTO;
 import ua.model.entity.Task;
 import ua.model.repository.ProjectRepository;
 import ua.model.repository.StatusRepository;

@@ -1,7 +1,10 @@
 package ua.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,6 +17,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "user_has_project")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ProjectTeam implements Serializable {
     @EmbeddedId
     private ProjectTeamId pk = new ProjectTeamId();

@@ -1,4 +1,4 @@
-package ua.controller.dto;
+package ua.model.dto;
 
 import java.sql.Date;
 
