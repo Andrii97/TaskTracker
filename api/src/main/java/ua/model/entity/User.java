@@ -4,23 +4,28 @@ package ua.model.entity;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
-public class User {
-//    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
-
+public class User implements UserDetails {
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String surname;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
-//    @OneToMany(mappedBy = "user")
-//    private List<ProjectTeam> projectTeam;
 
-    @Id
-    @GeneratedValue
+
     public Long getId() {
         return id;
     }
@@ -54,22 +59,45 @@ public class User {
         this.email = email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        String role = "user";
+        return Collections.singletonList(new SimpleGrantedAuthority(role));
+    }
+
     @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public void setPassword(String password) {
         this.password = password;// (password == null) ? null : PASSWORD_ENCODER.encode(password); //
     }
-//
-//    public List<ProjectTeam> getProjectTeam() {
-//        return projectTeam;
-//    }
-//
-//    public void setProjectTeam(List<ProjectTeam> projectTeam) {
-//        this.projectTeam = projectTeam;
-//    }
 
     @Override
     public boolean equals(Object o) {

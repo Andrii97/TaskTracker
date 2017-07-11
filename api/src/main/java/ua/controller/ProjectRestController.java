@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import ua.controller.dto.ProjectTeamDTO;
 import ua.model.entity.Project;
 import ua.model.entity.ProjectTeam;
 import ua.model.entity.ProjectTeamId;
+import ua.model.entity.User;
 import ua.model.repository.ProjectRepository;
 import ua.model.repository.ProjectTeamRepository;
 import ua.model.repository.UserRepository;
@@ -26,7 +29,9 @@ public class ProjectRestController {
 
     @GetMapping(path = "/projects/{id}")
     @ResponseBody
-    public ResponseEntity<Project> getProject(@PathVariable Long id) {
+    public ResponseEntity<Project> getProject(@AuthenticationPrincipal User user,
+                                              @PathVariable Long id) {
+        System.out.println(user.toString());
         Project project = projectRepository.findOne(id);
         if (project == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -36,7 +41,9 @@ public class ProjectRestController {
 
     @GetMapping(path = "/projects/{id}/projectTeam")
     @ResponseBody
-    public ResponseEntity<List<ProjectTeam>> getProjectTeam(@PathVariable Long id) {
+    public ResponseEntity<List<ProjectTeam>> getProjectTeam(Authentication authentication,
+            @PathVariable Long id) {
+        System.out.println(authentication);
         return new ResponseEntity<>(projectTeamRepository.findByProjectId(id), HttpStatus.OK);
     }
 

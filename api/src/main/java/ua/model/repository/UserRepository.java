@@ -7,9 +7,11 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import ua.model.entity.User;
 
+import java.util.Optional;
+
 @RepositoryRestResource
 @CrossOrigin
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
     @RestResource(path = "email", rel = "email")
-    User findByEmail(@Param("email") String email);
+    Optional<User> findByEmail(@Param("email") String email);
 }
