@@ -9,10 +9,15 @@ import ua.model.entity.Task;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * @author Andrii Severin
+ */
 @RepositoryRestResource
 @CrossOrigin
 public interface TaskRepository extends PagingAndSortingRepository<Task, Long> {
+    Optional<Task> findOne(long id);
     @RestResource(path = "userId", rel = "userId")
     List<Task> findByUserId(@Param("userId") Long userId);
     @RestResource(path = "userIdAndStatusId", rel = "userIdAndStatusId")

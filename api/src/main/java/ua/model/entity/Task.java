@@ -1,7 +1,10 @@
 package ua.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,6 +17,9 @@ import java.util.List;
  */
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Task {
     @Id
     @GeneratedValue
@@ -23,6 +29,7 @@ public class Task {
     @JsonBackReference
     private Task parent;
 
+    @NotNull
     private String name;
     private String description;
     private LocalDate createdAt;
@@ -34,9 +41,11 @@ public class Task {
     @JsonBackReference
     private Project project;
 
+    @NotNull
     @ManyToOne
     private Status status;
 
+    @NotNull
     @ManyToOne
     @JsonBackReference
     private User user;
