@@ -9,10 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ua.model.service.UserService;
 
+/**
+ * @version 1.0 12 Jul 2017
+ * @author Andrii Severin
+ */
 @Configuration
 @EnableWebSecurity
-//@Order(Ordered.HIGHEST_PRECEDENCE)?
-//@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
