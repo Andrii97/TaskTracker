@@ -71,11 +71,15 @@ public class OAuth2ServerConfig {
         }
 
         @Override
-        public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-                throws Exception {
+        public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
             endpoints
                     .tokenServices(tokenServices())
-                    .authenticationManager(authenticationManager);
+                    .authenticationManager(authenticationManager)
+                    .pathMapping("/oauth/authorize", "/api/oauth/authorize")
+                    .pathMapping("/oauth/token", "/api/oauth/token")
+                    .pathMapping("/oauth/check_token", "/api/oauth/check_token")
+                    .pathMapping("/oauth/confirm_access", "/api/oauth/confirm_access")
+                    .pathMapping("/oauth/error", "/api/oauth/error");
         }
 
         @Override

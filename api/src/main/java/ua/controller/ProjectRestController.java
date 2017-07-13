@@ -3,13 +3,10 @@ package ua.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import ua.model.dto.ProjectTeamDTO;
 import ua.model.entity.Project;
 import ua.model.entity.ProjectTeam;
-import ua.model.entity.User;
 import ua.model.exception.NotFoundException;
 import ua.model.service.ProjectService;
 
@@ -29,18 +26,14 @@ public class ProjectRestController {
 
     @GetMapping(path = "/projects/{id}")
     @ResponseBody
-    public ResponseEntity<Project> getProject(@AuthenticationPrincipal User user,
-                                              @PathVariable long id) {
-        System.out.println(user.toString());
+    public ResponseEntity<Project> getProject(@PathVariable long id) {
         Project response = projectService.getById(id).orElseThrow(NotFoundException::new);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping(path = "/projects/{id}/projectTeam")
     @ResponseBody
-    public ResponseEntity<List<ProjectTeam>> getProjectTeam(Authentication authentication,
-            @PathVariable Long id) {
-        System.out.println(authentication);
+    public ResponseEntity<List<ProjectTeam>> getProjectTeam(@PathVariable Long id) {
         return ResponseEntity.ok(projectService.getProjectTeamByProjectId(id));
     }
 
